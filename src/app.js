@@ -4,6 +4,7 @@ const authRoutes = require('./routes/authRoutes')
 const itemRoutes = require('./routes/itemRoutes')
 const uploadRoutes = require('./routes/uploadRoutes')
 const reportRoutes = require('./routes/reportRoutes');
+const partyRoutes = require('./routes/partyRoutes');
 const path = require('path')
 
 const app = express();
@@ -20,6 +21,7 @@ app.use('/api/items' , itemRoutes);
 app.use('/api/upload' , uploadRoutes);
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use('/api/reports', reportRoutes);
+app.use('/api/parties', partyRoutes);
 
 app.use((err, req, res, next) => {
   console.error('Request error:', err.message);
